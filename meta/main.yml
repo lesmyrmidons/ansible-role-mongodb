@@ -1,0 +1,22 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: lesmyrmidons
+  description: MongoDB for RedHat/CentOS/Debian/Ubuntu.
+  company: ""
+  license: "license (BSD, MIT)"
+  min_ansible_version: 1.4
+  platforms:
+  - name: EL
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  - name: RedHat
+    versions:
+    - all
+  categories:
+    - nosql
+    - db
