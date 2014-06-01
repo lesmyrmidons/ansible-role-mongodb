@@ -31,4 +31,4 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
   # Request a page via Apache, to make sure Apache is running and responds.
-  - "curl http://localhost/"
+  - "curl http://localhost:27017/"
