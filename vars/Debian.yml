@@ -1,10 +1,4 @@
 ---
 
-- name: Mongodb | Add keys authenticity
-  apt_key: url={{ url_apt_key }}0x7F0CEB10
-
-- name: Mongodb | Add source sources
-  apt_repository: repo='deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen' update_cache=yes
-
-- name: Mongodb | Install Packages
-  apt: pkg=mongodb-org
+url_apt_key: "http://keyserver.ubuntu.com/pks/lookup?op=get&search="
+mongodb_repository: "deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen"
