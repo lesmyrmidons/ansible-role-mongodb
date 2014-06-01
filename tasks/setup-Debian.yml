@@ -7,5 +7,5 @@
   apt_repository: repo='{{ mongodb_repository }}' update_cache=yes
 
 - name: Mongodb | Install Packages
-  apt: pkg={{ item }} stat=installed
+  apt: pkg={{ item }} state=installed
   with_items: mongodb_packages
