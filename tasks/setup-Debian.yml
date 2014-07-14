@@ -1,11 +1,11 @@
 ---
 
-- name: Mongodb | Add keys authenticity
+- name: Debian | Add keys authenticity
   apt_key: url={{ url_apt_key }}0x7F0CEB10
 
-- name: Mongodb | Add source sources
+- name: Debian | Add source sources
   apt_repository: repo='{{ mongodb_repository }}' update_cache=yes
 
-- name: Mongodb | Install Packages
+- name: Debian | Install Packages
   apt: pkg={{ item }} state=installed
   with_items: mongodb_packages

@@ -1,12 +1,12 @@
 ---
 
-- name: Mongodb | RedHat | Install dependencies packages
+- name: RedHat | Install dependencies packages
   yum: name={{ item }} state=installed
   with_items: mongodb_packages_dependencies
 
-- name: Mongodb | RedHat | Add source sources
+- name: RedHat | Add source sources
   template: src=mongodb.repo.j2 dest=/etc/yum.repos.d/mongodb.repo
 
-- name: Mongodb | RedHat | Install Packages
+- name: RedHat | Install Packages
   yum: name={{ item }} state=installed
   with_items: mongodb_packages
