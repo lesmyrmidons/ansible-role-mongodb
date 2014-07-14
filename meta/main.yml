@@ -18,5 +18,4 @@ galaxy_info:
     versions:
     - all
   categories:
-    - nosql
-    - db
+    - database:nosql
