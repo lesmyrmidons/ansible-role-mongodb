@@ -1,8 +1,12 @@
 ---
 
-- name: Mongodb | Add source sources
-  template: src=mongodb.repo.j2 dest=/etc/yum.repos.d/mongodb.repo stat=present 
+- name: Mongodb | RedHat | Install dependencies packages
+  yum: name={{ item }} state=installed
+  with_items: mongodb_packages_dependencies
 
-- name: Mongodb | Install Packages
+- name: Mongodb | RedHat | Add source sources
+  template: src=mongodb.repo.j2 dest=/etc/yum.repos.d/mongodb.repo
+
+- name: Mongodb | RedHat | Install Packages
   yum: name={{ item }} state=installed
   with_items: mongodb_packages
