@@ -8,4 +8,4 @@
 
 - name: Debian | Install Packages
   apt: pkg={{ item }} state=installed
-  with_items: mongodb_packages
+  with_items: "{{ mongodb_packages }}"
