@@ -8,9 +8,9 @@
   yum_repository:
     name: mongodb-org-{{ mongodb_version }}
     description: MongoDB Repository
-    baseurl: {{ mongodb_repo_baseurl }}
-    gpgcheck: {{ mongodb_repo_gpgcheck }}
-    gpgkey: {{ mongodb_repo_gpgkey }}
+    baseurl: "{{ mongodb_repo_baseurl }}"
+    gpgcheck: "{{ mongodb_repo_gpgcheck }}"
+    gpgkey: "{{ mongodb_repo_gpgkey }}"
 
 - name: RedHat | Install Packages
   yum: name={{ item }} state=installed
