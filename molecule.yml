@@ -1,0 +1,22 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+docker:
+  containers:
+    - name: centosapp
+      image: centos
+      image_version: centos7.2.1511
+      cap_add:
+        - SYS_ADMIN
+      ansible_groups:
+        - group1
+verifier:
+  name: testinfra
+ansible:
+  playbook: tests/test.yml
+  group_vars:
+    group1:
+      - test_run: True
+  sudo: False
