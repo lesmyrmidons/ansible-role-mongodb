@@ -32,3 +32,6 @@ script:
 
   # Request a page via Apache, to make sure Apache is running and responds.
   - "curl http://localhost:27017/"
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
