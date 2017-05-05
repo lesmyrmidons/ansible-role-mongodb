@@ -18,12 +18,12 @@ galaxy_info:
     - all
   - name: Ubuntu
     versions:
-    - Precise
-    - Trusty
-    - Xenial
+    - all
   - name: RedHat
     versions:
     - all
   galaxy_tags:
     - database
     - nosql
+  notifications:
+    webhooks: https://galaxy.ansible.com/api/v1/notifications/
