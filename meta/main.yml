@@ -8,6 +8,7 @@ galaxy_info:
   issue_tracker_url: https://github.com/lesmyrmidons/ansible-role-mongodb/issues
   license: "license (BSD, MIT)"
   min_ansible_version: 2.1
+  github_branch: master
   platforms:
   - name: EL
     versions:
@@ -17,12 +18,12 @@ galaxy_info:
     - all
   - name: Ubuntu
     versions:
-    - 12.04
-    - 14.04
-    - 16.04
+    - Precise
+    - Trusty
+    - Xenial
   - name: RedHat
     versions:
     - all
-  galaxy_info:
+  galaxy_tags:
     - database
     - nosql
