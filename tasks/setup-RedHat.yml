@@ -2,7 +2,7 @@
 
 - name: RedHat | Install dependencies packages
   yum: name={{ item }} state=installed
-  with_items: "{{ mongodb_packages_dependencies }}"
+  with_items: "{{ mongodb_packages_dependencies | default([]) }}"
 
 - name: RedHat | Add source sources
   yum_repository:
