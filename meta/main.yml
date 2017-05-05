@@ -23,5 +23,6 @@ galaxy_info:
   - name: RedHat
     versions:
     - all
-  categories:
-    - database:nosql
+  galaxy_info:
+    - database
+    - nosql
