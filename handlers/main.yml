@@ -4,3 +4,6 @@
 
 - name: start mongod
   service: name=mongod state=started
+
+- name: mongodb_settings restart
+  service: name=mongodb_settings state=restarted
