@@ -37,7 +37,10 @@ mongodb_conf_auth: no                             # Run with security
 mongodb_conf_bind_ip: 127.0.0.1                   # Comma separated list of ip addresses to listen on
 mongodb_conf_cpu: yes                             # Periodically show cpu and iowait utilization
 mongodb_conf_dbpath: /data/db                     # Directory for datafiles
-mongodb_conf_fork: no                             # Fork server process
+
+# Fork server process
+# Enabled by default for RedHat as the init scripts assume forking is enabled
+mongodb_processmanagement_fork: '{{ "RedHat" == ansible_os_family }}'
 mongodb_conf_httpinterface: no                    # Enable http interface
 mongodb_conf_ipv6: no                             # Enable IPv6 support (disabled by default)
 mongodb_conf_journal: no                          # Enable journaling
@@ -82,6 +85,8 @@ mongodb_users:
 - name: mongo_user
   password: password
   role: readWrite
+  login_host: "{{ mongodb_conf_bind_ip }}"
+  login_port: "{{ mongodb_conf_port }}"
   databases:
   - sample_database
   

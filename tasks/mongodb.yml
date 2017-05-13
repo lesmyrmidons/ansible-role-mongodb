@@ -9,7 +9,7 @@
 - include: install.deb.yml
   when: ansible_os_family == 'Debian' and mongodb_install
 
-- include: install.xenial.yml
+- include: install.service.yml
   when: ansible_os_family == 'Debian' and ansible_distribution_release == 'xenial'
 
 - include: configure.yml

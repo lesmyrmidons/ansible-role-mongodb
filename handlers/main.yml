@@ -1,9 +1,9 @@
 ---
-- name: restart mongod
-  service: name=mongod state=restarted
+- name: reload mongod
+  service: name={{ mongodb_daemon_name }} state=reloaded
 
-- name: start mongod
-  service: name=mongod state=started
+- name: restart mongod
+  service: name={{ mongodb_daemon_name }} state=restarted
 
 - name: mongodb_settings restart
   service: name=mongodb_settings state=restarted
