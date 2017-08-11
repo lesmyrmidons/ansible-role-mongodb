@@ -15,8 +15,24 @@
   when: ansible_distribution == 'Ubuntu'
 
 - name: Debian | Add source sources
-  apt_repository: repo='{{ mongodb_repository }}' update_cache=yes
+  apt_repository:
+    repo: "{{ mongodb_repository }}"
+    update_cache: yes
+    state: present
 
 - name: Debian | Install Packages
   apt: pkg={{ item }} state=installed force=yes
   with_items: "{{ mongodb_packages }}"
+
+- name: Ubuntu | Add service file for Xenial only
+  template:
+    src: mongod.service.j2
+    dest: /lib/systemd/system/mongod.service
+    owner: root
+    group: root
+    mode: 0644
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'xenial'
+
+- name: Ubuntu | Add service file for Xenial only
+  systemd: daemon_reload=yes
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'xenial'
