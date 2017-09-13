@@ -46,9 +46,28 @@ To change the list of packages to install:
 
 ## Example Playbook
 
-    - hosts: nosql
-      roles:
-        - { role: lesmyrmidons.mongodb }
+- name: Setup Mongo
+  hosts: localhost
+  become_user: root
+  become: yes
+  roles:
+  - lesmyrmidons.mongodb.mongodb
+
+  vars:
+    mongodb_user: mongodb
+    mongodb_conf_bind_ip: 0.0.0.0
+    mongodb_conf_port: 27099
+    mongodb_version: "3.4.4"
+    mongodb_conf_journal: yes
+    mongodb_conf_auth: no
+  
+    mongodb_users:
+    - name: admin
+      password: "admin"
+      role: "readWriteAnyDatabase,dbAdminAnyDatabase,userAdminAnyDatabase"
+      login_port: "{{ mongodb_conf_port }}"
+      databases:
+      - test
 
 ## License
 
