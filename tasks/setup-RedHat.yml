@@ -15,3 +15,7 @@
 - name: RedHat | Install Packages
   yum: name={{ item }} state=installed
   with_items: "{{ mongodb_packages }}"
+
+- name: RedHat | Install Additional Packages
+  yum: name={{ item }} state=installed
+  with_items: "{{ mongodb_additional_packages }}"
